@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/nearFragment"
+        android:icon="@drawable/ic_near"
+        android:title="Near" />
+    <item
+        android:id="@+id/browseFragment"
+        android:icon="@drawable/ic_browse"
+        android:title="Browse" />
+    <item
+        android:id="@+id/myPageFragment"
+        android:icon="@drawable/ic_me"
+        android:title="My Page" />
+
+</menu>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:background="@color/white">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imagePopular"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:src="@drawable/item_new_demo"
+        app:layout_constraintDimensionRatio="16:8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ImageStyle" />
+
+    <Button
+        android:id="@+id/buttonJoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:background="@drawable/button_bg"
+        android:drawableStart="@drawable/ic_star"
+        android:paddingStart="3dp"
+        android:paddingEnd="3dp"
+        android:text="Tham gia"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/imagePopular"
+        app:layout_constraintTop_toTopOf="@id/imagePopular" />
+
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:drawablePadding="10dp"
+        android:text="Thu 4, 2019/12/11"
+        android:textColor="@color/purple_heart"
+        android:textSize="14sp"
+        app:drawableStartCompat="@drawable/ic_calendar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imagePopular" />
+
+    <TextView
+        android:id="@+id/textNumPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/purple_heart"
+        android:text="40 se tham gia"
+        android:textColor="@color/purple_heart"
+        android:textSize="14sp"
+        app:drawableLeftCompat="@drawable/ic_dot"
+        app:layout_constraintStart_toEndOf="@id/textTime"
+        app:layout_constraintTop_toTopOf="@id/textTime" />
+
+    <TextView
+        android:id="@+id/textSubTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:text="UK ports ‘preparing to host EU customs checks’"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/textTime"
+        app:layout_constraintTop_toBottomOf="@id/textTime" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:text="When someone has a burn injury, skin is used as a natural plaster to help healing. It helps stop..."
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/textSubTitle"
+        app:layout_constraintTop_toBottomOf="@id/textSubTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

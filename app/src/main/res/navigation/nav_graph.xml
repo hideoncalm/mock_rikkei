@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/browseFragment">
+
+    <fragment
+        android:id="@+id/browseFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.browse.BrowseFragment"
+        android:label="BrowseFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.home.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/nearFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.near.NearFragment"
+        android:label="NearFragment" />
+    <fragment
+        android:id="@+id/myPageFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.mypage.MyPageFragment"
+        android:label="MyPageFragment" >
+        <action
+            android:id="@+id/action_myPageFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeNewsFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.home.news.HomeNewsFragment"
+        android:label="HomeNewsFragment" />
+    <fragment
+        android:id="@+id/homePopularFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.home.popular.HomePopularFragment"
+        android:label="HomePopularFragment" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.mypage.account.AccountFragment"
+        android:label="AccountFragment" >
+        <action
+            android:id="@+id/action_accountFragment_to_restPassFragment"
+            app:destination="@id/restPassFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restPassFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.mypage.resetpass.RestPassFragment"
+        android:label="RestPassFragment" />
+</navigation>
