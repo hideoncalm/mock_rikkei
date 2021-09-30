@@ -2,15 +2,18 @@ package com.rikkeisoft.mockrikkei.ui.home.popular
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.rikkeisoft.mockrikkei.base.BaseFragment
 import com.rikkeisoft.mockrikkei.base.OnButtonClickListener
 import com.rikkeisoft.mockrikkei.base.OnItemClickListener
 import com.rikkeisoft.mockrikkei.data.model.Popular
 import com.rikkeisoft.mockrikkei.databinding.FragmentHomePopularBinding
+import com.rikkeisoft.mockrikkei.ui.home.HomeFragmentDirections
 import com.rikkeisoft.mockrikkei.ui.home.popular.adapter.HomePopularAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomePopularFragment : BaseFragment<FragmentHomePopularBinding>(),
@@ -21,25 +24,35 @@ class HomePopularFragment : BaseFragment<FragmentHomePopularBinding>(),
     private val homeAdapter by lazy {
         HomePopularAdapter(this, this)
     }
-    private val viewModel: HomePopularViewModel by viewModels()
+//    private val viewModel: HomePopularViewModel by viewModels()
 
     override fun initViews() {
+        // check login
         binding.recyclerPopular.adapter = homeAdapter
     }
 
     override fun initData() {
-        viewModel.popular.observe(viewLifecycleOwner, {
+//        viewModel.popular.observe(viewLifecycleOwner, {
 //            homeAdapter.updateData(it)
-            Timber.d(it.size.toString())
-        })
+//        })
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val response = mutableListOf<Popular>()
+            for (i in 0..4) {
+                response.add(Popular(i))
+            }
+            homeAdapter.updateData(response)
+        }
     }
 
     override fun onItemClick(item: Popular) {
-        Timber.d("Click")
+        val action = HomeFragmentDirections.actionHomeFragmentToEventDetailFragment()
+        findNavController().navigate(action)
     }
 
     override fun onButtonClick(item: Popular) {
-        Timber.d("Button")
+        val action = HomeFragmentDirections.actionHomeFragmentToCustomBottomSheetDialog()
+        findNavController().navigate(action)
     }
 
 }

@@ -13,7 +13,7 @@ import kotlinx.parcelize.Parcelize
 data class New(
     @SerializedName("new_id")
     @PrimaryKey
-    val id: Long,
+    val id: Int,
     @SerializedName("feed")
     val feed: String? = "",
     @SerializedName("title")
@@ -27,7 +27,7 @@ data class New(
     val author: String? = "",
     @SerializedName("publish_date")
     @ColumnInfo(name = "publish_date")
-    val date: Long = 0L,
+    val date: Int = 0,
     @SerializedName("detail_url")
     @ColumnInfo(name = "detail_url")
     val detailUrl: String? = ""

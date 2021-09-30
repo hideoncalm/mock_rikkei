@@ -3,12 +3,16 @@ package com.rikkeisoft.mockrikkei.ui.home.news
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.rikkeisoft.mockrikkei.base.BaseFragment
 import com.rikkeisoft.mockrikkei.base.OnItemClickListener
 import com.rikkeisoft.mockrikkei.data.model.New
 import com.rikkeisoft.mockrikkei.databinding.FragmentHomeNewsBinding
 import com.rikkeisoft.mockrikkei.ui.home.news.adapter.HomeNewsAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -24,15 +28,20 @@ class HomeNewsFragment : BaseFragment<FragmentHomeNewsBinding>(), OnItemClickLis
     }
 
     override fun initData() {
-        viewModel.apply {
-            news.observe(viewLifecycleOwner, {
-                Timber.d(it.size.toString())
-            })
+//        viewModel.news.observe(viewLifecycleOwner, {
+//            homeAdapter.updateData(it)
+//        })
+        lifecycleScope.launch(Dispatchers.IO){
+            val response = mutableListOf<New>()
+            for (i in 0..4) {
+                response.add(New(i))
+            }
+            homeAdapter.updateData(response)
         }
     }
 
     override fun onItemClick(item: New) {
-        Timber.d("Click")
+        // open social media
     }
 
 }

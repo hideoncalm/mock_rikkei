@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MockRikkei</string>
+    <string name="google_maps_key">AIzaSyCsvgDvKT6pVCaQm2sRcBfjoVIofjrSVUs</string>
 </resources>

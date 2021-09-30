@@ -12,7 +12,7 @@ import kotlinx.parcelize.Parcelize
 data class Popular(
     @SerializedName("id")
     @PrimaryKey
-    val id: Long,
+    val id: Int,
     @SerializedName("status")
     val status: String? = "",
     @SerializedName("photo")

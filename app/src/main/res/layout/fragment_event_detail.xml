@@ -1,6 +1,349 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/viewSpace1"
+        app:layout_constraintTop_toTopOf="@+id/viewSpace1">
+
+        <ImageView
+            android:id="@+id/imageEvent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/item_new_demo"
+            app:layout_constraintDimensionRatio="16:8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:background="@drawable/viewshadow"
+            app:layout_constraintBottom_toBottomOf="@id/imageEvent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:background="?selectableItemBackground"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@id/imageEvent"
+            app:layout_constraintStart_toStartOf="@id/imageEvent"
+            app:layout_constraintTop_toTopOf="@id/imageEvent" />
+
+        <TextView
+            android:id="@+id/textEvent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:maxLines="2"
+            android:text="UK ports ‘preparing to host EU customs checks’"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageEvent" />
+
+        <TextView
+            android:id="@+id/textTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:text="Time"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textEvent" />
+
+        <TextView
+            android:id="@+id/textTimeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Thứ 4, 2019/12/11"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textLocationTitle"
+            app:layout_constraintTop_toTopOf="@id/textTime" />
+
+        <TextView
+            android:id="@+id/textLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:text="Location"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTime" />
+
+        <TextView
+            android:id="@+id/textLocationTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:gravity="center_vertical"
+            android:text="Rikkeisoft Hà Nội"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textLocation"
+            app:layout_constraintTop_toTopOf="@id/textLocation" />
+
+        <TextView
+            android:id="@+id/textLocationDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:text="Tầng 19, tòa nhà Sông Đà, Mễ Trì, Nam Từ Liêm, Hà Nội"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textLocationTitle"
+            app:layout_constraintTop_toBottomOf="@id/textLocationTitle" />
+
+        <Button
+            android:id="@+id/buttonFollow"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_bg_follow"
+            android:text="Follow"
+            android:textAllCaps="false"
+            android:textColor="@color/purple_heart"
+            app:layout_constraintStart_toStartOf="@id/textLocationDetail"
+            app:layout_constraintTop_toBottomOf="@id/textLocationDetail" />
+
+        <TextView
+            android:id="@+id/textNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:text="Number"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_account"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonFollow" />
+
+        <TextView
+            android:id="@+id/textNumberTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="40 sẽ tham gia"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textLocationTitle"
+            app:layout_constraintTop_toTopOf="@id/textNumber" />
+
+        <TextView
+            android:id="@+id/textCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:text="Category"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_cate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textNumber" />
+
+        <TextView
+            android:id="@+id/textCategoryTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Công nghệ, IT"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textLocationTitle"
+            app:layout_constraintTop_toTopOf="@id/textCategory" />
+
+        <TextView
+            android:id="@+id/textContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:drawablePadding="15dp"
+            android:gravity="center_vertical"
+            android:text="Contact"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_contact"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textCategory" />
+
+        <TextView
+            android:id="@+id/textContactName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Hoàng Vũ Nam"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textLocationTitle"
+            app:layout_constraintTop_toTopOf="@id/textContact" />
+
+        <TextView
+            android:id="@+id/textContactEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="namhv@rikkeisoft.com"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textLocationTitle"
+            app:layout_constraintTop_toBottomOf="@id/textContact" />
+
+        <View
+            android:id="@+id/viewSpace1"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="10dp"
+            android:background="#EEECF0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textContactEmail" />
+
+        <TextView
+            android:id="@+id/textEventShort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="Mô tả sự kiện"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewSpace1" />
+
+        <TextView
+            android:id="@+id/textEventDes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:maxLines="8"
+            android:text="The BBC is reporting that plans are underway for EU border checks in Britain for trade bound for Northern Ireland. The BBC has learned that freight could be diverted through ports with space for inspections such as Liverpool and Stranraer, despite the government denying checks will be necessary, reports the media outlet."
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textEventShort" />
+
+        <View
+            android:id="@+id/viewSpace2"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="10dp"
+            android:background="#EEECF0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textEventDes" />
+
+        <TextView
+            android:id="@+id/textAround"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="Sự kiện quanh đây"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewSpace2" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerEvent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textAround"
+            tools:listitem="@layout/item_new_horizontal" />
+
+        <Button
+            android:id="@+id/buttonSTG"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/button_login_bg"
+            android:text="Se tham gia"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonDTG"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerEvent" />
+
+        <Button
+            android:id="@+id/buttonDTG"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/button_login_bg"
+            android:text="Da tham gia"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/buttonSTG"
+            app:layout_constraintTop_toTopOf="@id/buttonSTG" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

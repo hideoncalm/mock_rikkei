@@ -9,6 +9,7 @@ import com.rikkeisoft.mockrikkei.data.repository.NewRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,19 +17,24 @@ class HomeNewViewModel @Inject constructor(
     private val newRepo: NewRepository
 ) : ViewModel() {
 
+    init {
+        getNews()
+    }
+
     private val _news = MutableLiveData<MutableList<New>>()
     val news: LiveData<MutableList<New>>
         get() = _news
 
-    fun getNews() {
+    private fun getNews() {
         viewModelScope.launch(Dispatchers.IO) {
 //            val response = newRepo.getLocalNews()
 //            _news.postValue(response.toMutableList())
             val response = mutableListOf<New>()
             for (i in 0..4) {
-                response.add(New(i.toLong()))
+                response.add(New(i))
             }
             _news.postValue(response)
+            Timber.d(response.size.toString())
         }
     }
 }

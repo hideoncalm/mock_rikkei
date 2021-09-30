@@ -2,24 +2,45 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/browseFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/browseFragment"
         android:name="com.rikkeisoft.mockrikkei.ui.browse.BrowseFragment"
-        android:label="BrowseFragment" />
+        android:label="BrowseFragment">
+        <action
+            android:id="@+id/action_browseFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+        <action
+            android:id="@+id/action_browseFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.rikkeisoft.mockrikkei.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_customBottomSheetDialog"
+            app:destination="@id/customBottomSheetDialog" />
+        <action
+            android:id="@+id/action_homeFragment_to_customDialog"
+            app:destination="@id/customDialog" />
+    </fragment>
     <fragment
         android:id="@+id/nearFragment"
         android:name="com.rikkeisoft.mockrikkei.ui.near.NearFragment"
-        android:label="NearFragment" />
+        android:label="NearFragment">
+        <action
+            android:id="@+id/action_nearFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myPageFragment"
         android:name="com.rikkeisoft.mockrikkei.ui.mypage.MyPageFragment"
-        android:label="MyPageFragment" >
+        android:label="MyPageFragment">
         <action
             android:id="@+id/action_myPageFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
@@ -35,7 +56,7 @@
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.rikkeisoft.mockrikkei.ui.mypage.account.AccountFragment"
-        android:label="AccountFragment" >
+        android:label="AccountFragment">
         <action
             android:id="@+id/action_accountFragment_to_restPassFragment"
             app:destination="@id/restPassFragment" />
@@ -44,4 +65,35 @@
         android:id="@+id/restPassFragment"
         android:name="com.rikkeisoft.mockrikkei.ui.mypage.resetpass.RestPassFragment"
         android:label="RestPassFragment" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.eventbycate.CategoryFragment"
+        android:label="CategoryFragment">
+        <action
+            android:id="@+id/action_categoryFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.search.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/eventDetailFragment"
+        android:name="com.rikkeisoft.mockrikkei.ui.detail.EventDetailFragment"
+        android:label="EventDetailFragment" />
+    <dialog
+        android:id="@+id/customBottomSheetDialog"
+        android:name="com.rikkeisoft.mockrikkei.utils.CustomBottomSheetDialog"
+        android:label="CustomBottomSheetDialog" />
+    <dialog
+        android:id="@+id/customDialog"
+        android:name="com.rikkeisoft.mockrikkei.utils.CustomDialog"
+        android:label="CustomDialog" >
+        <action
+            android:id="@+id/action_customDialog_to_accountFragment"
+            app:destination="@id/accountFragment" />
+    </dialog>
 </navigation>

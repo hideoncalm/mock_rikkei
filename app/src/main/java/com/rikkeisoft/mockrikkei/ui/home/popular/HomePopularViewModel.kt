@@ -16,17 +16,21 @@ class HomePopularViewModel @Inject constructor(
     private val popularRepo: PopularRepository
 ) : ViewModel() {
 
+    init {
+        getPopulars()
+    }
+
     private val _populars = MutableLiveData<MutableList<Popular>>()
     val popular: LiveData<MutableList<Popular>>
         get() = _populars
 
-    fun getPopulars() {
+    private fun getPopulars() {
         viewModelScope.launch(Dispatchers.IO) {
 //            val response = popularRepo.getLocalPopulars()
 //            _populars.postValue(response.toMutableList())
             val response = mutableListOf<Popular>()
             for (i in 0..4) {
-                response.add(Popular(i.toLong()))
+                response.add(Popular(i))
             }
             _populars.postValue(response)
         }
